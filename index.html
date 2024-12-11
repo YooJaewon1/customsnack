@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입에 복이 들어온당</title>
+    <link rel="stylesheet" href="style.css" />
+    
+</head>
+<body>
+
+<!-- 1 타이틀 -->
+    <div class ="top">
+        <img src="icon/bgm2.PNG" alt="음악 버튼" class="bgmbutton" id="bgmButton">
+        <audio id="audioPlayer" src="sound/mainbgm.mp3"></audio>
+    </div>
+
+    <div id="intro1" class="section" style="display: block;"
+    onclick="showRandomImage(event)">
+    <img src="img/click1.PNG" class="random-image" id="click1">
+    <img src="img/click2.PNG" class="random-image" id="click2">
+    <img src="img/click3.PNG" class="random-image" id="click3">
+    <img src="img/click4.PNG" class="random-image" id="click4">
+    <img src="img/click5.PNG" class="random-image" id="click5">
+    <img src="img/click6.PNG" class="random-image" id="click6">
+    <!-- <button onclick="nextIntro(7)">7로가기</button> -->
+        <h1> 
+            <span>나</span>
+            <span>만</span>
+            <span>의</span> <br>
+            <span id ="anitext">붕어빵</span>
+            <span>부</span>
+            <span>적</span>
+            <span>만</span>
+            <span>들</span>
+            <span>기</span>
+        </h1>
+        <button onclick="nextIntro(2)" class="introButton" value="PLAY"> 간식 만나러 가기 </button>
+        <audio id="effect1" src="sound/effect1.wav"></audio>
+        <audio id="effect1-1" src="sound/effect1-1.mp3"></audio>
+        <p class="introduce">
+            화면을 클릭해보세요!
+        </p>
+    </div>
+
+<!-- 2-1 나레이션 -->
+    <div id="intro2" class="section" style="display: none;">
+        <div class="textbox2-1">
+            <div class="data-trigger">
+                <span class="text1"></span>
+            </div>
+        </div>
+        <div class="alertbox2-1">
+            <p>배고픈 당신의 이름은?</p>
+            <div class="alertbox2-2">
+                <input type="text" id="nameInput" placeholder="내 이름이 뭐더라" />
+                <img onclick="saveName(); playSound();" id="nameInputbtn" value="PLAY" src="img/vbtn.PNG">
+                <audio id="effect2" src="sound/effect2.wav"></audio>
+            </div>
+        </div>
+    </div>
+
+<!-- 2-2 이름 입력됨 -->
+    <div id="intro3" class="section" style="display: none;">
+        <div class="textbox2-1">
+            <div class="data-trigger">
+                <span class="text2"></span>
+            </div>
+        </div>
+    </div>
+
+<!-- 2-3 먹을 것들이 떠오름 -->
+<div id="intro4" class="section" style="display: none;">
+    <div class="textbox2-1">
+        <div class="data-trigger">
+            <span class="text3"></span>
+        </div>
+    </div>
+    <div class="snack-container" onclick="playSound1()">
+        <div class="snack-top">
+            <div alt="국화빵" data-name="국화빵" class="hover-image" id="snack1" onclick="nextIntro(5)">
+                <p> 국화빵 사서 <br>하나씩 꺼내 먹을까</p>
+                <img src="img/snack1.PNG" id="snack2">
+            </div>
+            <div alt="붕어빵" data-name="붕어빵" class="hover-image" onclick="nextIntro(5)">
+                <p> 겨울이니까 붕어빵? <br> 팥붕 한입에 슈붕 한 입</p>
+                <img src="img/snack2.PNG" >
+            </div>
+            <div alt="계란빵" data-name="계란빵" class="hover-image" id="snack3" onclick="nextIntro(5)">
+                <p> 지금 출출해서 계란빵 먹으면<br> 딱일 것 같은데</p>
+                <img src="img/snack3.PNG" >
+            </div>
+        </div>
+        <div class="snack-bottom">
+            <div alt="어묵" data-name="어묵" class="hover-image" id="snack4" onclick="nextIntro(5)">
+                <p> 뜨끈한 어묵국물 한 모금 <br> 딱 마시면 몸 녹을 듯</p>
+                <img src="img/snack4.PNG">
+                </div>
+            <div alt="십원빵" data-name="십원빵" class="hover-image" id="snack5" onclick="nextIntro(5)">
+                <p> 십원도 인생이다!<br>십원빵 먹을까</p>
+                <img src="img/snack5.PNG">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <!--3 포장마차 만남 -->
+    <div id="intro5" class="section" style="display: none;">
+        <div class="textbox2-1">
+            <div class="data-trigger">
+                <div class="text4"></div>
+            </div>
+        </div>
+        <div class="gamebox" onclick="nextIntro(6); playSound2();">
+
+        </div>
+    </div>
+
+<!-- 4 포장마차 내부 -->
+<div id="intro6" class="section" style="display: none;">
+        <div class="textbox2-1">
+            <div class="data-trigger">
+                <div class="text6"></div>
+            </div>
+        </div>
+
+      
+    <img src="img/bg4-1.PNG" id="card">
+    <div class="selectbox">
+        <img src="img/snack2.PNG" onclick="nextIntro(7); ">
+        <img src="img/snack3.PNG" onclick="nextIntro(7); ">
+        <img src="img/snack5.PNG" onclick="nextIntro(7);">
+    </div>  
+    <img src="img/bg4.PNG" id="back">
+</div>
+
+<!-- 게임 - 붕어빵 7-->
+<div id="intro7" class="section" style="display: none;">
+
+    <div class="game111" >
+        <img src="img/guide.png" id="guide" >
+        <audio id="sound3" src="sound/timer.mp3"></audio>
+        <div class="timer">
+            <div id="timer-text">00:59</div>
+            <img src="img/game1-7.png" id="game1-7">
+        </div>
+    
+ <!-- btn1-1 그룹 -->
+<div class="btn1-1" id="hidee" onclick="playSound4()">
+    <img src="img/game1-1.png" id="game1-1" alt="game1-1" ">
+    <img src="img/btn1-1-1.png" id="btn1-1-1" class="btn" data-group="1-1"/>
+    <img src="img/btn1-1-2.png" id="btn1-1-2" class="btn" data-group="1-1"/>
+    <img src="img/btn1-1-3.png" id="btn1-1-3" class="btn" data-group="1-1"/>
+</div>
+
+<!-- game1-1 그룹 이미지들 -->
+<div id="game1-1-container" class="image-container">
+    <img src="img/game1-1-1.png" id="game1-1-1" class="game-image" data-group="1-1"/>
+    <p id="desc-game1-1-1" class="image-description" data-group="1-1" style="display:none;">밀가루 반죽 +</p>
+    <img src="img/game1-1-2.png" id="game1-1-2" class="game-image" data-group="1-1"/>
+    <p id="desc-game1-1-2" class="image-description" data-group="1-1" style="display:none;">카카오 반죽 +</p>
+    <img src="img/game1-1-3.png" id="game1-1-3" class="game-image" data-group="1-1"/>
+    <p id="desc-game1-1-3" class="image-description" data-group="1-1" style="display:none;">옹스짱 반죽 +</p>
+</div>
+
+<!-- btn1-2 그룹 -->
+<div class="btn1-2" id="hideee" onclick="playSound5()">
+    <img src="img/game1-2.png" id="game1-2" alt="game1-2" data-group="1-2">
+    <img src="img/btn1-2-1.PNG" id="btn1-2-1" class="btn" data-group="1-2"/>
+    <img src="img/btn1-2-2.PNG" id="btn1-2-2" class="btn" data-group="1-2"/>
+    <img src="img/btn1-2-3.PNG" id="btn1-2-3" class="btn" data-group="1-2"/>
+</div>
+
+<!-- game1-2 그룹 이미지들 -->
+<div id="game1-2-container" class="image-container" >
+    <img src="img/game1-2-1.png" id="game1-2-1" class="game-image" data-group="1-2" />
+    <p id="desc-game1-2-1" class="image-description" data-group="1-2" style="display:none;">팥</p>
+    <img src="img/game1-2-2.png" id="game1-2-2" class="game-image" data-group="1-2"/>
+    <p id="desc-game1-2-2" class="image-description" data-group="1-2" style="display:none;">슈크림</p>
+    <img src="img/game1-2-3.png" id="game1-2-3" class="game-image" data-group="1-2"/>
+    <p id="desc-game1-2-3" class="image-description" data-group="1-2" style="display:none;">카다이프 피스타치오</p>
+</div>
+
+<!-- 무늬 버튼 -->
+<div class="btn1-3" data-group="1-3"> 
+    <img src="img/game1-3.png" id="game1-3" alt="game1-3" data-group="1-3">
+    <img src="img/btn1-3-1.PNG" id="btn1-3-1" class="btn" data-group="1-3"/>
+    <img src="img/btn1-3-2.PNG" id="btn1-3-2" class="btn" data-group="1-3"/>
+    <img src="img/btn1-3-3.PNG" id="btn1-3-3" class="btn" data-group="1-3"/>
+</div>
+
+    <div id="game1-3-container" class="image-container2">
+            <img src="img/game1-3-1.png" id="game1-3-1" alt="game1-3-1" style="display:none;">
+            <p id="desc-game1-3-1" class="image-description" style="display:none;"></p>
+            <img src="img/game1-3-2.png" id="game1-3-2" alt="game1-3-2" style="display:none;">
+            <p id="desc-game1-3-2" class="image-description" style="display:none;"></p>
+            <img src="img/game1-3-3.png" id="game1-3-3" alt="game1-3-3" style="display:none;">
+            <p id="desc-game1-3-3" class="image-description" style="display:none;"></p>
+        </div>
+
+    <div id="game1-8-container" class="image-container2" >
+            <img src="img/game1-8-1.png" id="game1-8-1" alt="game1-8-1" data-group="1-8"/>
+
+            <img src="img/game1-8-2.png" id="game1-8-2" alt="game1-8-2" data-group="1-8"/>
+
+            <img src="img/game1-8-3.png" id="game1-8-3" alt="game1-8-3" data-group="1-8"/>
+
+    </div>
+        
+
+    <img src="img/guide.png" id="guide2" style="display: none;">
+    <img src="img/guidebtn.png" id="guidebtn" class="btn" onclick="guide()"/>
+    <img src="img/game1-4.png" id="game1-4" class="btn" style="display: none;"/>
+    <img src="img/game1-6.png" id="game1-6" class="btn" style="display: none;" data-group="1-3" onclick="nextIntro(10); playSound7()"/>
+    <img src="img/game1-0.PNG" id="game1-0">
+    </div>
+</div>
+    
+
+<!-- 게임 - 계란빵 8-->
+
+<!-- 게임 - 십원빵 9-->
+
+<!-- 10 부적꾸미기 -->
+<div id="intro10" class="section" style="display: none;">
+    <div class="lucky"> 
+        <p id="gggp"> 부적을 클릭해 배경을 바꿔보세요</p>
+    </div>
+    <div class="luckycard">
+        <img id="bung-image" alt="bung-image">
+    </div>
+    <button onclick="nextIntro(11)" class="ggg"> 부적 체험하러 가기 </button>
+</div>
+
+<!-- 부적효능1 -->
+<div id="intro11" class="section fade-in" style="display: none;">
+
+    <div class="textbox2-2">
+        <div class="data-trigger">
+            <div class="textlast"></div>
+        </div>
+    </div>
+    <img src ="img/bg-bung.jpg">
+
+    </div>
+</div>
+
+
+    <script type="text/javascript" src="sample.js"></script>
+
+</body>
+</html>
