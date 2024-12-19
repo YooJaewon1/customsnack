@@ -1,0 +1,814 @@
+@font-face{ font-family:'DNFBitBitv2';
+    font-style:normal;
+    font-weight:400;
+    src:url('https://cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')}
+@font-face{font-family : "Moneygraphy-Pixel"
+    src:url("fonts/Moneygraphy-Pixel.woff");
+    ;}
+@font-face { font-family: 'DOSSaemmul';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSSaemmul.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;}
+
+* {
+    cursor: url('img/cursor.PNG') 2 2, auto;
+}
+
+*:active{
+    cursor: url('img/pointer.PNG') 2 2, auto;
+}
+
+
+
+
+body { background: radial-gradient(ellipse, #1b2735 0%, #090a0f 100%);
+    filter: drop-shadow(0 0 50% white);
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
+
+    } 
+
+    .random-image {
+        position: absolute;
+        opacity: 0; /* 초기 상태에서 이미지 숨기기 */
+        ; /* 서서히 나타나고 사라지게 하기 */
+        pointer-events: none; /* 이미지가 클릭을 방해하지 않도록 설정 */
+        width: 10vw;
+    }
+    
+    .random-image.show {
+        opacity: 1; /* 이미지를 보이게 */
+        overflow: hidden;
+    }
+
+.snow {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 3px 3px white;
+        z-index: 98;
+      }
+
+.bgmbutton {
+        z-index: 99;
+          position: absolute;
+    right: 2vw;
+    }
+
+.top { 
+    width: 100vw;
+z-index: 99;
+cursor: pointer;
+overflow: visible;
+}
+
+.top img{width: 8vw;
+    cursor: url('img/pointer.PNG') 2 2, auto;}
+
+.introduce{
+    font-family: 'DOSSaemmul';
+    letter-spacing: 0.5rem;
+    font-size: 1.2rem;
+    animation: fadeOpacity 3s infinite; /* 3초 동안 애니메이션 반복 */
+}
+
+@keyframes fadeOpacity {
+    0% {
+        opacity: 0.2; /* 시작 시 오퍼시티 20% */
+    }
+    50% {
+        opacity: 0.9; /* 중간 시 오퍼시티 90% */
+    }
+    100% {
+        opacity: 0.2; /* 끝 시 오퍼시티 20% */
+    }
+}
+
+#intro1 {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    letter-spacing: -0.25rem;
+}
+#intro1 h1 {
+    filter: contrast(150%) ;
+    height: 40vh;
+    font-family: 'DNFBitBitv2';
+    font-style: normal;
+    font-weight:400;
+    -webkit-text-stroke: 3px black;
+    text-shadow: 
+    2px 2px 0px black, /* 우측 하단 */
+    -2px -2px 0px black, /* 좌측 상단 */
+    2px -2px 0px black, /* 우측 상단 */
+    -2px 2px 0px black, /* 좌측 하단 */
+    0px 0px 0px black,  /* 상단 */
+    0px 8px 0px black, /* 하단 */
+    2px 0px 0px black,  /* 오른쪽 */
+    -2px 0px 0px black; /* 왼쪽 */
+}
+
+#intro1 h1 span {
+    font-family: 'DNFBitBitv2';
+    font-size: 6.5vmax;
+    position: relative;
+    top: 10%;
+    display: inline-block;
+    /*  폰트가 부드러워지게 설정  */
+    -webkit-font-smoothing: antialiased;
+    /*  x축, y축, 블러 설정  */
+    
+    animation: bounce 0.35s ease 9 forwards alternate;
+}
+#intro1 h1 span:nth-child(2){animation-delay: 0.15s;}
+#intro1 h1 span:nth-child(3){animation-delay: 0.45s;}
+#intro1 h1 span:nth-child(4){animation-delay: 0.65s;}
+#intro1 h1 span:nth-child(5){animation-delay: 0.85s;}
+#intro1 h1 span:nth-child(6){animation-delay: 1.05s;}
+#intro1 h1 span:nth-child(7){animation-delay: 1.25s;}
+#intro1 h1 span:nth-child(8){animation-delay: 1.45s;}
+#intro1 h1 span:nth-child(9){animation-delay: 1.65s;}
+#intro1 h1 span:nth-child(10){animation-delay: 1.85s;}
+  
+@keyframes bounce {
+    100% {
+        top: -5px;
+        
+    }
+}
+
+#anitext {
+    font-size: 48px;
+    transition: all 0.5s ease-in-out; /* 텍스트 변화에 부드러운 애니메이션 추가 */
+    
+  }
+
+  .hidden { opacity: 0;
+  }
+
+.introButton {
+    font-family: "DOSSaemmul";
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 15px;
+    border: 3px solid;
+    border-color: black;
+    border-style: double;
+    border-width: 5px;
+}
+
+.introButton:hover {
+    background-color: black; /* 호버 시 배경을 흰색으로 변경 */
+    color: white; /* 호버 시 글자색을 검은색으로 변경 */
+    border-color: black; /* 호버 시 테두리 색을 검은색으로 변경 */
+    cursor: url('img/pointer.PNG') 2 2, auto;
+    border-style: double;
+    border-width: 5px;
+    border-color:white;
+}
+
+.data-trigger{display: flex;}
+
+.textbox2-1{width: 80vw;
+    height: 20vh;
+    color: black;
+    background-color: white;
+    border: 2px solid ;
+    position: fixed; /* 화면에 고정 */
+    bottom: 10vh; /* 아래쪽에 배치 */
+    left: 50%; /* 수평 중앙 정렬 */
+    transform: translateX(-50%); /* 정확한 중앙 정렬을 위해 */
+    display: flex; /* Flexbox 활성화 */
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; 
+    z-index: 999;
+    border-style: double;
+    border-width: 10px;
+    }
+
+.text1, .text2, .text3, .text4, .text6{
+    font-size: 2rem;
+    font-family: "DOSSaemmul";
+    color: black;
+    text-align: center;
+    cursor: url('img/pointer.PNG') 2 2, auto;
+}
+
+.section {
+    background-size: cover;
+    width: 100vw;
+    height: 100%;
+}
+#intro1, #intro2, #intro3, #intro4, #intro5{
+    background-image: url("img/bg2.jpg");
+}
+
+#intro1 {
+    background-image: url("img/bg1.jpg");
+    padding-top: 20vh;
+}
+
+.alertbox2-1 {
+    font-family: "DOSSaemmul";
+    margin: 0 auto;
+    width: 30vw;
+    height: 30vh;
+    font-size: 1.5rem;
+    color: black;
+    background-color: white;
+    border: 2px solid;
+    position: fixed; /* 화면에 고정 */
+    top: 40%; /* 수직 중앙 */
+    left: 50%; /* 수평 중앙 */
+    transform: translate(-50%, -50%); /* 완전한 중앙 정렬 */
+    display: flex; /* 내부 요소 정렬 */
+    flex-direction: column; /* 세로 정렬 */
+    justify-content: center; /* 내부 요소 수직 중앙 */
+    align-items: center; /* 내부 요소 수평 중앙 */
+    z-index: 100; /* 다른 요소 위에 표시 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    opacity: 0;
+    border-style: dotted;
+    border-width: 2px;
+}
+
+
+#nameInput{font-family: "DOSSaemmul";
+    font-size: 1rem;
+    margin: 0 auto;
+    width: 10vw;
+    height: 5vh;
+    text-align: center;
+}
+
+#nameInputbtn {
+    width: 1.8vw;
+    margin:0 auto;
+    cursor: url('img/pointer.PNG') 2 2, auto;
+}
+
+.alertbox2-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8vw;
+}
+
+
+.snack-container{
+    display: flex;
+    flex-direction: column;  /* 위 아래 배치하려면 column*/
+    align-items: center;  /* 자식 요소들을 수평으로 중앙 정렬 */
+    justify-content: center;  /* 수직 정렬을 위해 */
+    gap: 5vh;  /* 요소들 사이의 간격 */
+    height: 80vh;  /* 화면 크기에 맞게 설정 */
+    font-family: "DOSSaemmul";
+    font-size: 2rem;
+}
+
+.snack-top {
+    display: flex;
+    justify-content: space-between; /* 3개 박스 간격 조정 */
+    width: 80%;  /* 부모의 너비를 80%로 설정 */
+    gap: 10px;  /* 박스 간의 간격 */
+}
+
+.snack-bottom {
+    display: flex;
+    justify-content: space-between;  /* 2개 박스 간격 조정 */
+    width: 60%;  /* 부모의 너비를 60%로 설정 */
+    gap: 10px;  /* 박스 간의 간격 */
+    flex-wrap: wrap;
+}
+
+
+.hover-image {
+    width: 25vw;
+    height: 15vh;
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border: 2px solid;
+    cursor: url('img/pointer.PNG') 2 2, auto;
+}
+
+.hover-image p {
+    color: black;
+    position: absolute;
+    font-size: 1.2vmax;
+}
+
+.hover-image img{
+    position: absolute;
+    display: none;
+    height: 100%;
+}
+.hover-image:hover img {
+    display: block; /* hover 시 img 보이게 */
+    top: 60%; /* 세로 가운데 */
+    left: 90%; /* 가로로 10% 지점 */
+    transform: translate(-50%, -50%); /* 실제 중앙에 위치하도록 조정 */
+    cursor: url('img/pointer.PNG') 2 2, auto;
+}
+.hover-image {
+    transition: all 0.3s ease; /* 부드러운 전환 효과 */
+  }
+  
+  .hover-image:hover {
+    transform: scale(1.1); /* 이미지 크기 살짝 키우기 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+    cursor: url('img/pointer.PNG') 2 2, auto;
+  }
+
+.gamebox{
+    width: 38vw;
+    height: 57vh;
+    background-color: white;
+    border: 2px solid;
+
+    position: relative;
+    top: 8vh;
+    left: 50%; /* 수평 중앙 정렬 */
+    transform: translateX(-50%); /* 정확한 중앙 정렬을 위해 */
+
+    overflow: hidden;
+    background-image: url('img/bg1.png');
+    background-size: cover;
+    background-position: center;
+
+/* 이미지의 중앙에 배치 */
+z-index: 999;
+}
+
+.gamebox:hover{
+    background-image: url('img/place.png');
+    cursor: url('img/pointer.PNG') 2 2, auto;
+}
+
+.gamebox img{
+    width: 35vw;
+    position: absolute;
+    display:none;
+
+}
+
+.backimg:hover{
+    display:
+}
+
+#intro6 {
+    background-image: url('img/bg4.PNG');
+    z-index: 996;
+}
+
+#back{
+    width:100vw;;
+    position: relative;
+    left: 50%; /* 수평 중앙 정렬 */
+    transform: translateX(-50%); /* 정확한 중앙 정렬을 위해 */
+    display: flex; /* Flexbox 활성화 */
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; 
+    z-index: 997;
+}
+
+#card {
+    width:65vw;;
+    position: relative;
+    opacity: 0; /* 초기에는 보이지 않도록 설정 */
+    animation: slideDown 1s forwards;
+    left: 18%;
+}
+
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-100%); /* 화면 밖 위로 시작 */
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0); /* 원래 위치로 내려옴 */
+      opacity: 1; /* 완전히 나타남 */
+    }
+  }
+
+.selectbox{
+    position: absolute;
+    top:30vh;
+    left:33%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 1.5vw;
+}
+
+.selectbox img{
+    width: 10vw;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid;
+    padding: 0.8vw;
+    border-color: lightgray;
+    border-style: outset;
+    border-width: 10px;
+}
+
+.selectbox img:hover{
+    cursor: url('img/pointer.PNG') 2 2, auto;
+    transform: scale(0.9); /* 이미지 크기 살짝 키우기 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+    border-style: inset;
+    border-width: 10px;
+}
+
+.gamebox2 {
+
+    width: 38vw;
+    height: 57vh;
+    background-color: white;
+    border: 2px solid;
+
+    position: relative;
+    top: 8vh;
+    left: 50%; /* 수평 중앙 정렬 */
+    transform: translateX(-50%); /* 정확한 중앙 정렬을 위해 */
+
+    overflow: hidden;
+    background-image: url('img/bg1.png');
+    background-size: cover;
+    background-position: center;
+
+/* 이미지의 중앙에 배치 */
+z-index: 999;
+text-align: center;
+justify-content: center;
+}
+
+.gamebox2 p {
+    font-family: 'DOSSaemmul'
+}
+
+#intro7{
+    background-color: black;
+    display: flex;
+}
+
+.game111 {
+    width: 870px;
+    height: 700px;
+    background-color: aqua;
+    border: 5px solid;
+    border-color: white;
+    position: absolute;
+    overflow: hidden; /* 영역 밖 콘텐츠 숨기기 */
+    top: 50%;  /* 화면의 50% 아래에 배치 */
+    left: 50%; /* 화면의 50% 오른쪽에 배치 */
+    transform: translate(-50%, -50%); /* 중심으로 이동 */
+    overflow: hidden;
+}
+
+
+#game1-1, #game1-2, #game1-3, #game1-4,
+#game1-5, #game1-6, #game1-7 {
+    position: absolute;
+    z-index: 999; /* 다른 이미지 위로 배치 */
+    cursor: url('img/pointer.PNG') 2 2, auto;
+    height: 65px;
+  }
+
+  #game1-0 {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: ;
+  }
+
+  #game1-1:hover,
+  #game1-2:hover,
+  #game1-3:hover,
+  #game1-4:hover,
+  #game1-5:hover,
+  #game1-6:hover {
+    transform: scale(1) /* 확대 및 회전 효과 */
+  }
+
+.timer{
+    position:fixed;
+    top:140px; left: 180px;
+    width: 150px;
+    z-index: 999;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer-text{
+    font-family:'DNFBitBitv2';
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.66);
+    position: fixed;
+}
+
+#game1-7{
+    position: fixed;
+    z-index:-1;
+    height: 85px;;
+}
+
+  #game1-1 { position: fixed;
+    top: 110px; left: 20px; }
+    #game1-1t {
+        color:white;
+        font-size: 5rem;
+    }
+    
+    #game1-1-1,#game1-1-2,#game1-1-3 { position: fixed;
+        height:230px;
+        top: 282px; left:245px;
+        z-index:993;
+        display: none; }
+
+  #game1-2 { position: fixed;
+    top: 110px; right:25px; }
+    #game1-2-1,#game1-2-2,#game1-2-3 { position: fixed;
+        height:130px;
+        top: 310px; left:285px;
+        z-index:999; }
+
+  #game1-3 { position: fixed;
+    top: 110px; right:25px; }
+    #game1-3-1,#game1-3-2,#game1-3-3 { position: fixed;
+        height:212px;
+        top: 270px; left:228px;
+        z-index:5; }
+
+#game1-8 { position: fixed;
+            top: 110px; left:585px;                 z-index:999; 
+            display: flex;}
+
+#game1-8-1,#game1-8-2,#game1-8-3 { position: fixed;
+                height:212px;
+                top: 270px; left:228px;
+                z-index:999; 
+                display: none;
+}
+
+
+  #game1-4 {
+    position: fixed;
+    bottom: 90px; right:23px; height: 100px;
+        z-index:9999;
+      }
+
+  #game1-5 { position: fixed;
+    top: 350px; left:50px; }
+  #game1-6 { position: fixed;
+    bottom: 100px; right:45px; }
+
+
+.image-description {
+    left: 80px;
+    bottom: 60px;
+    display: none;
+    font-size: 2rem;
+    color: #fff;
+    font-family:'DNFBitBitv2';
+    text-align: center;
+    z-index: 999;
+    position: fixed;
+}
+
+#desc-game1-1-1, #desc-game1-1-2, #desc-game1-1-3{
+    left: 180px;
+}
+
+#desc-game1-2-1, #desc-game1-2-2, #desc-game1-2-3{
+    left: 380px;
+}
+
+#guide, #guide2 {position: fixed;
+    width: 500px;
+    z-index: 9999;
+    top: 110px;
+    left: 180px;
+}
+
+.lucky{
+    width: 500px;
+    height: 500px;
+    position: fixed;
+    top:0;
+}
+
+
+.btn1-1 {
+    width: 100px;
+    height: 350px;
+    position: fixed;
+    z-index: 999;
+    top:200px;
+    left:35px;
+    display: column;
+    gap: 100px;
+}
+
+.btn1-2, .btn1-3 {
+    width: 100px;
+    height: 350px;
+    position: fixed;
+    z-index: 999;
+    top:200px;
+    right:10px;
+    display: column;
+    gap: 100px;
+}
+
+.btn1-3{
+    display: none;
+}
+
+.btn1-1 img{
+    width: 100px;
+    top: 100px;
+
+    z-index: 999;
+    cursor: url('img/pointer.PNG') 2 2, auto;
+}
+
+#btn1-1-1, #btn1-1-2, #btn1-1-3{
+    width: 70px;
+    padding-bottom: 30px;
+}
+
+#btn1-2-1, #btn1-2-2, #btn1-2-3{
+    width: 70px;
+    padding-bottom: 25px;
+}
+
+#btn1-3-1, #btn1-3-2, #btn1-3-3{
+    width: 70px;
+    padding-bottom: 25px;
+}
+
+#guidebtn{
+    position: fixed;
+    bottom:100px;
+    left:28px;
+    width: 80px;
+}
+
+#guidebtn:hover{
+    transform: scale(1.2)
+}
+
+.btn1-1 img:hover,
+.btn1-2 img:hover{
+    transform: scale(1.2) rotateZ(-50deg);
+}
+.btn1-3 img:hover{
+    transform: scale(1) translateY(10px);
+}
+
+.game-image {
+    display: none;
+}
+
+#bung-image{ width:450px;
+    
+}
+
+.luckycard{
+    width: 320px;
+    height: 500px; /* height 속성 수정 */
+    background-color: rgb(255, 127, 200);
+    position: fixed;
+    top: 50%; /* 화면의 50% 아래에 배치 */
+    left: 50%; /* 화면의 50% 오른쪽에 배치 */
+    transform: translate(-50%, -50%); /* 중심으로 이동 */
+    display: flex; /* 자식 요소들을 flexbox로 정렬 */
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    background-image: url('img/luckycard1.PNG'); /* 배경 이미지 경로 */
+    background-size: cover; /* 이미지가 컨테이너를 덮도록 설정 */
+    background-position: center; /* 배경 이미지가 중앙에 오도록 설정 */
+    background-repeat: no-repeat; /* 배경 이미지 반복 방지 */
+    transition: transform 0.3s ease; /* 부드러운 회전 효과 */
+    transform-style: preserve-3d; /* 3D 변형을 유지 */
+    perspective: 1000px; /* 3D 효과를 위한 관점 설정 */
+    cursor: url('img/pointer.PNG') 2 2, auto;
+
+}
+
+.luckycard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/back.png'); /* 뒤쪽 이미지 */
+    background-size: cover;
+    background-position: center;
+    backface-visibility: hidden; /* 뒷면 숨기기 */
+    transform: rotateY(180deg); /* 뒷면은 180도 회전하여 뒤로 배치 */
+    cursor: url('img/pointer.PNG') 2 2, auto;
+}
+.luckycard:hover{
+    cursor: url('img/pointer.PNG') 2 2, auto;
+}
+
+.ggg{
+    z-index: 999;
+    bottom: 5%; /* 화면의 50% 아래에 배치 */
+    left: 50%; /* 화면의 50% 오른쪽에 배치 */
+    transform: translate(-50%); /* 중심으로 이동 */
+    position: fixed;
+    font-family: "DOSSaemmul";
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
+    border: 3px solid;
+    border-color: black;
+    border-style: double;
+    border-width: 5px;
+    cursor: url('img/pointer.PNG') 2 2, auto;
+}
+.ggg:hover {
+    background-color: black; /* 호버 시 배경을 흰색으로 변경 */
+    color: white; /* 호버 시 글자색을 검은색으로 변경 */
+    border-color: black; /* 호버 시 테두리 색을 검은색으로 변경 */
+    cursor: url('img/pointer.PNG') 2 2, auto;
+    border-style: double;
+    border-width: 5px;
+    border-color:white;
+    
+}
+
+#gggp {
+    font-family: "DOSSaemmul";
+    font-size: 1.5rem;
+    top: 5%;
+    left: 50%; /* 화면의 50% 오른쪽에 배치 */
+    transform: translate(-50%); /* 중심으로 이동 */
+    position: fixed;
+    color: white;
+    z-index: 9999;
+}
+
+
+#intro11 img{
+    width:100%;
+    position: fixed;
+    top: -20%;
+    left: 50%; /* 화면의 50% 오른쪽에 배치 */
+    transform: translate(-50%); /* 중심으로 이동 */
+}
+
+.data-trigger{display: flex;}
+
+.textbox2-2{
+    width: 30vw;
+    height: 20vh;
+    color: black;
+    background-color: white;
+    border: 2px solid ;
+    position: fixed; /* 화면에 고정 */
+    bottom: 10vh; /* 아래쪽에 배치 */
+    right: 8%; /* 수평 중앙 정렬 */
+
+    display: flex; /* Flexbox 활성화 */
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; 
+    z-index: 9999;
+    border-style: double;
+    border-width: 10px;
+    }
+
+.textlast{
+    font-size: 2rem;
+    font-family: "DOSSaemmul";
+    color: black;
+    text-align: center;
+    cursor: url('img/pointer.PNG') 2 2, auto;
+    z-index: 999999;
+}
+
+.textlast1{
+    font-size: 2rem;
+    font-family: "DOSSaemmul";
+    color: black;
+    text-align: center;
+    cursor: url('img/pointer.PNG') 2 2, auto;
+    z-index: 999999;
+}
